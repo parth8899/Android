@@ -1,0 +1,39 @@
+To play .mp3 file from sdcard of the emulator follow the steps.
+
+    Copy .mp3 file from your hard drive location. e.g. d:\songs\song1.mp3
+    Open any new eclipse project. File -> New -> Android Project.
+    In Eclipse Click on the icon "Opens the Android SDK and AVD Manger" from the toolbar.
+    Create New AVD, by choosing, select target greater than 1.6.
+    Upon successful creation start the AVD.
+    In Eclipse, Goto DDMS perspective. Window -> Open Perspective -> DDMS.
+    In DDMS Perspective, select the device (AVD) which is currently running from the Devices Panel.
+    On the right panel from "File Explorer", Select SDCARD folder.
+    On the tool bar select the button "Push a file on to the device".
+    Select the .mp3 file from the location. 
+    Goto Java Perspective. Window-> Open Perspective -> JAVA.
+    Write the following Code.
+
+       String PATH_TO_FILE = "/sdcard/a.mp3";
+        MediaPlayer mp1 = new MediaPlayer();
+        try 
+       {
+              mp1.setDataSource(PATH_TO_FILE);
+             mp1.prepare();
+             mp1.start();
+       } 
+       catch (IllegalArgumentException e) 
+      {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+      }
+      catch (IllegalStateException e)
+      {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+      }
+      catch (IOException e) 
+      {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+Run the project.....!!!!
